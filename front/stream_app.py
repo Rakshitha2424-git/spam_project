@@ -4,27 +4,34 @@ import requests
 st.set_page_config(page_title="Spam Detector", layout="centered")
 
 st.title("📩 Spam Message Detector")
-st.write("Enter a message to check if it's spam.")
+st.markdown("Check whether a message is **Spam or Not Spam** using ML")
 
-message = st.text_area("Message")
+# Input box
+message = st.text_area("Enter your message:", height=150)
 
+# Button
 if st.button("Predict"):
+
     if message.strip() == "":
-        st.warning("Please enter a message")
+        st.warning("⚠️ Please enter a message")
     else:
-        try:
-            url = "http://127.0.0.1:5000/predict"
-            response = requests.post(url, json={"message": message})
+        with st.spinner("Analyzing message... ⏳"):
+            try:
+                url = "http://127.0.0.1:8000/predict"
+                response = requests.post(url, json={"message": message})
 
-            if response.status_code == 200:
-                result = response.json()["prediction"]
+                if response.status_code == 200:
+                    result = response.json()["prediction"]
 
-                if result == "Spam":
-                    st.error("🚨 This is Spam")
+                    st.subheader("Result:")
+
+                    if result == "Spam":
+                        st.error("🚨 This message is Spam")
+                    else:
+                        st.success("✅ This message is Not Spam")
+
                 else:
-                    st.success("✅ Not Spam")
-            else:
-                st.error("API error")
+                    st.error("❌ API Error")
 
-        except:
-            st.error("⚠️ Backend not running")
+            except:
+                st.error("⚠️ Backend not running")
