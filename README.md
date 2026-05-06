@@ -73,7 +73,7 @@ Spam 🚨
 ---
 
 ## 📷 Screenshot
-
+![App Screenshot](screenshot.png)
 
 ---
 
