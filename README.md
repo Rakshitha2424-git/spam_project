@@ -20,6 +20,7 @@ A full-stack Machine Learning project that detects whether a message is **Spam o
 - Python
 - FastAPI
 - Streamlit
+- PostgreSQL (Neon DB)
 - Scikit-learn
 - Pandas
 
