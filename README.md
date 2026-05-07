@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 📩 Spam Message Detection App
 
 A full-stack Machine Learning project that detects whether a message is **Spam or Not Spam**.
@@ -189,4 +188,3 @@ Spam
 ## Author
 
 Rakshitha Patil
->>>>>>> aa1b0e119bba5900c3b1bd3ca57b5d28fe72a642
